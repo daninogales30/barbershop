@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Reservar cita{% endblock %}
+
+{% block content %}
+
+<h2>Reservar cita</h2>
+
+<form method="post" id="reserva-form">
+    {% csrf_token %}
+
+    <!-- 📅 FECHA -->
+    <div>
+        <label>Fecha</label>
+        {{ form.fecha }}
+    </div>
+
+    <!-- 🕒 HORA -->
+    <div>
+        <label>Hora</label>
+        <select name="hora">
+            {% for value, label in form.fields.hora.choices %}
+                <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Reservar</button>
+</form>
+
+<!-- 🚀 AUTO-SUBMIT AL CAMBIAR FECHA -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const fechaInput = document.querySelector("input[name='fecha']");
+        const form = document.getElementById("reserva-form");
+
+        if (fechaInput) {
+            fechaInput.addEventListener("change", function () {
+                form.submit();
+            });
+        }
+    });
+</script>
+
+{% endblock %}
