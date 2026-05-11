@@ -1,7 +1,54 @@
 {% extends "reservas/../base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'reservas/css/home.css' %}">
+{% endblock %}
 
 {% block title %}Inicio - Barbería{% endblock %}
 
 {% block content %}
-    <h1>Bienvenido a la Barbería 💈</h1>
+    <section class="hero" style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+        <div class="hero-content">
+            <h1>Bienvenido a la barbería</h1>
+            <p>Los mejores cortes de la ciudad</p>
+            <a href="{% url 'somos' %}">Leer más</a>
+        </div>
+    </section>
+
+    <section class="que-hacemos">
+        <div class="que-hacemos-content">
+            <h2>¿Que hacemos?</h2>
+            <p>Ofrecemos cortes de pelo y arreglo de barba personalizados, cuidando cada detalle para que siempre salgas
+                con
+                un estilo fresco y a tu medida.</p>
+            <div class="galeria-cortes">
+                <div class="corte">
+                    <img src="{% static 'reservas/imgs/silver-machine-haircut.jpg' %}" alt="">
+                    <h3>dadaw</h3>
+                </div>
+                <div class="corte">
+                    <img src="{% static 'reservas/imgs/silver-machine-haircut.jpg' %}" alt="">
+                </div>
+                <div class="corte">
+                    <img src="{% static 'reservas/imgs/silver-machine-haircut.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="horario" style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+        <div class="horario-content">
+            <h2>Horarios</h2>
+            <p>Horarios de la barbería</p>
+        </div>
+    </section>
+
+    <section class="precios">
+        <h2>Precios</h2>
+        <p>Estos son los precios de la barbería</p>
+    </section>
+
+
+
 {% endblock %}

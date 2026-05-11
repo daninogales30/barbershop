@@ -1,7 +1,7 @@
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, FormView
 
@@ -45,10 +45,14 @@ class RegisterView(LoginRequiredMixin, FormView):
 class ReservaCreateView(LoginRequiredMixin, CreateView):
     model = Reserva
     form_class = ReservaForm
-    template_name = "reservas/crear_reserva.html"
     success_url = reverse_lazy('home')
+    template_name = "reservas/crear_reserva.html"
 
     def form_valid(self, form):
         form.instance.usuario = self.request.user
         return super().form_valid(form)
+
+class CustomLogoutView(LogoutView):
+    def get_next_page(self):
+        return '/'
 
