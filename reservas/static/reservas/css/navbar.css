@@ -1,0 +1,119 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+
+    /* Fondo semi-transparente con blur (efecto vidrio) */
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+
+    padding: 15px 0;
+
+    /* Elimina cualquier margin negativo o extraño */
+    margin: 0;
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #c59d5f;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 40px;
+    flex: 1;
+    justify-content: center;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+.navbar-links a:hover {
+    color: #c59d5f;
+}
+
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #c59d5f;
+    transition: width 0.3s ease;
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
+.auth {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.auth a, .auth span {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.auth button {
+    background: #c59d5f;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.auth button:hover {
+    background: #a87d3e;
+    transform: scale(1.05);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar-links {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+}

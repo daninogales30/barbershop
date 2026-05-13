@@ -28,18 +28,4 @@
     <button type="submit">Reservar</button>
 </form>
 
-<!-- 🚀 AUTO-SUBMIT AL CAMBIAR FECHA -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const fechaInput = document.querySelector("input[name='fecha']");
-        const form = document.getElementById("reserva-form");
-
-        if (fechaInput) {
-            fechaInput.addEventListener("change", function () {
-                form.submit();
-            });
-        }
-    });
-</script>
-
 {% endblock %}

@@ -8,12 +8,20 @@
 {% block title %}Inicio - Barbería{% endblock %}
 
 {% block content %}
-    <section class="hero" style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
-        <div class="hero-content">
-            <h1>Bienvenido a la barbería</h1>
-            <p>Los mejores cortes de la ciudad</p>
-            <a href="{% url 'somos' %}">Leer más</a>
+    <section class="hero"
+             style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+
+
+        <div class="hero-center">
+
+            <div class="hero-content">
+                <h1>Bienvenido a la barbería</h1>
+                <p>Los mejores cortes de la ciudad</p>
+                <a href="{% url 'somos' %}">Saber más</a>
+            </div>
+
         </div>
+
     </section>
 
     <section class="que-hacemos">
@@ -25,7 +33,6 @@
             <div class="galeria-cortes">
                 <div class="corte">
                     <img src="{% static 'reservas/imgs/silver-machine-haircut.jpg' %}" alt="">
-                    <h3>dadaw</h3>
                 </div>
                 <div class="corte">
                     <img src="{% static 'reservas/imgs/silver-machine-haircut.jpg' %}" alt="">
@@ -37,16 +44,63 @@
         </div>
     </section>
 
-    <section class="horario" style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+    <section class="horario"
+             style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
         <div class="horario-content">
             <h2>Horarios</h2>
             <p>Horarios de la barbería</p>
+            <div class="horarios-grid">
+                <div class="horario-card">
+                    <h3>Lunes</h3>
+                    <span>09:00 - 21:00</span>
+                </div>
+                <div class="horario-card">
+                    <h3>Martes</h3>
+                    <span>09:00 - 21:00</span>
+                </div>
+                <div class="horario-card">
+                    <h3>Miércoles</h3>
+                    <span>09:00 - 21:00</span>
+                </div>
+                <div class="horario-card">
+                    <h3>Jueves</h3>
+                    <span>09:00 - 21:00</span>
+                </div>
+                <div class="horario-card">
+                    <h3>Viernes</h3>
+                    <span>09:00 - 21:00</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="precios">
-        <h2>Precios</h2>
-        <p>Estos son los precios de la barbería</p>
+        <div class="precios-content">
+            <h2>Precios</h2>
+            <p>Estos son los precios de la barbería</p>
+            <div class="precios-grid">
+                <div class="precio-item">
+                    <span class="servicio">Corte</span>
+                    <span class="dots"></span>
+                    <span class="precio">20€</span>
+                </div>
+                <div class="precio-item">
+                    <span class="servicio">Corte a tijera</span>
+                    <span class="dots"></span>
+                    <span class="precio">15€</span>
+                </div>
+                <div class="precio-item">
+                    <span class="servicio">Corte con barba</span>
+                    <span class="dots"></span>
+                    <span class="precio">27€</span>
+                </div>
+                <div class="precio-item">
+                    <span class="servicio">Barba</span>
+                    <span class="dots"></span>
+                    <span class="precio">10€</span>
+                </div>
+            </div>
+        </div>
     </section>
 
 

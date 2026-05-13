@@ -3,19 +3,38 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'reservas/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'reservas/css/footer.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+          rel="stylesheet">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-{% include "h&f/navbar.html" %}
+
+<!-- La navbar va aquí, ANTES del main -->
+{% include 'h&f/navbar.html' %}
 
 <main class="container">
     {% block content %}
     {% endblock %}
 </main>
 
-
+{% include 'h&f/footer.html' %}
+<script>
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+            navbar.style.backdropFilter = 'none';
+        } else {
+            navbar.style.background = 'rgba(0, 0, 0, 0.6)';
+            navbar.style.backdropFilter = 'blur(10px)';
+        }
+    });
+</script>
 </body>
 </html>
+
