@@ -1,8 +1,24 @@
 {% extends "reservas/../base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'reservas/css/servicios.css' %}">
+{% endblock %}
 
 {% block title %}Servicios - Barbería{% endblock %}
 
 {% block content %}
-    <h1>Servicios de la Barbería 💈</h1>
+    <section class="hero"
+             style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+        <div class="hero-center">
+            <div class="hero-content">
+                <h1>Servicios de la Barbería 💈</h1>
+                <span><a href="{% url 'home' %}">Home</a></span>
+                <span> / </span>
+                <span class="banner">Servicios</span>
+            </div>
+        </div>
+    </section>
+
     <a href={% url 'crear_reserva' %}>Crear reserva</a>
 {% endblock %}

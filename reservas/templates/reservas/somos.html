@@ -1,7 +1,24 @@
 {% extends "reservas/../base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'reservas/css/somos.css' %}">
+{% endblock %}
 
 {% block title %}Quienes Somos - Barbería{% endblock %}
 
 {% block content %}
-    <h1>Quiénes Somos 💈</h1>
+
+    <section class="hero"
+             style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+        <div class="hero-center">
+            <div class="hero-content">
+                <h1>Quiénes Somos 💈</h1>
+                <span><a href="{% url 'home' %}">Home</a></span>
+                <span> / </span>
+                <span class="banner">Quienes somos</span>
+            </div>
+        </div>
+    </section>
+
 {% endblock %}

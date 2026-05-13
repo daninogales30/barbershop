@@ -3,19 +3,22 @@
     top: 0;
     z-index: 1000;
     width: 100%;
-
-    /* Fondo semi-transparente con blur (efecto vidrio) */
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-
+    background: transparent !important;
+    backdrop-filter: none;
     padding: 15px 0;
-
-    /* Elimina cualquier margin negativo o extraño */
     margin: 0;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    /* Asegura una altura base */
+    line-height: 1.2;
+}
+
+.navbar.scrolled {
+    background: #303030 !important;
+    backdrop-filter: none;
 }
 
 .navbar-content {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -84,7 +87,7 @@
     font-weight: 500;
 }
 
-.auth button {
+.auth button, .auth .a-login {
     background: #c59d5f;
     color: white;
     border: none;
@@ -96,7 +99,7 @@
     transition: all 0.3s ease;
 }
 
-.auth button:hover {
+.auth button:hover, .auth .a-login:hover {
     background: #a87d3e;
     transform: scale(1.05);
 }

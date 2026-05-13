@@ -1,0 +1,63 @@
+.hero {
+    width: 100%;
+    min-height: 50vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Sube el hero el mismo alto que la navbar */
+    margin-top: -80px; /* Valor negativo */
+    /* Da espacio interno para que el contenido no quede tapado */
+    padding-top: 80px;
+    box-sizing: border-box;
+}
+
+/* Overlay oscuro para mejorar legibilidad del texto */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-center {
+    width: 100%;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content a {
+    color: white;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.hero-content a:hover{
+    color: #c59d5f;
+}
+
+.banner {
+    color: #c59d5f;
+}
