@@ -21,4 +21,103 @@
         </div>
     </section>
 
+    <section class="somos1">
+        <div class="somos1-content">
+            <div class="texto1">
+                <h2>Una Barbería Tradicional Con Un Toque Moderno.</h2>
+                <p>En Barbería Tradicional Moderna combinamos la esencia de la barbería clásica con un estilo moderno,
+                    ofreciendo cortes y arreglos de barba con atención al detalle, trato cercano y un ambiente cómodo
+                    para que siempre salgas con tu mejor versión.</p>
+            </div>
+            <div>
+                <img src="{% static 'reservas/imgs/silver-machine-haircut.jpg' %}" alt="dwadawd">
+            </div>
+        </div>
+    </section>
+
+    <section class="info">
+        <div class="info-content">
+            <div class="info-card">
+                <img src="{% static 'reservas/imgs/1.png' %}" alt="">
+                <h3>15</h3>
+                <span>Años de experiencia</span>
+            </div>
+            <div class="info-card">
+                <img src="{% static 'reservas/imgs/7.png' %}" alt="">
+                <h3>140</h3>
+                <span>Clientes Satisfechos</span>
+            </div>
+            <div class="info-card">
+                <img src="{% static 'reservas/imgs/8.png' %}" alt="">
+                <h3>370</h3>
+                <span>Diseños realizados</span>
+            </div>
+            <div class="info-card">
+                <img src="{% static 'reservas/imgs/9.png' %}" alt="">
+                <h3>+5</h3>
+                <span>Marcas asociadas</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="opinion"
+             style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+
+        <div class="opinion-overlay"></div>
+
+        <div class="opinion-content">
+
+            <div class="slider-container">
+
+                <div class="slider-track">
+
+                    <div class="slide">
+                        <p>“La mejor barbería de Jerez.”</p>
+                        <h4>— Carlos Martínez</h4>
+                    </div>
+
+                    <div class="slide">
+                        <p>“Atención increíble y ambiente brutal.”</p>
+                        <h4>— Javier López</h4>
+                    </div>
+
+                    <div class="slide">
+                        <p>“Fade perfecto y trato profesional.”</p>
+                        <h4>— David Ruiz</h4>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+
+        const track = document.querySelector(".slider-track");
+        const dots = document.querySelectorAll(".dot");
+
+        dots.forEach((dot, index) => {
+
+            dot.addEventListener("click", () => {
+
+                track.style.transform = `translateX(-${index * 100}%)`;
+
+                document.querySelector(".dot.active").classList.remove("active");
+
+                dot.classList.add("active");
+
+            });
+
+        });
+
+    </script>
 {% endblock %}

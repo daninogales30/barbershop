@@ -21,12 +21,49 @@
         </div>
     </section>
 
+    <section class="formulario">
+        <div class="formulario-content">
+            <h2>Contacta con nosotros</h2>
+            <form class="formu" method="POST">
+
+                {% csrf_token %}
+
+                <div class="fila">
+                    <div class="campo">
+                        {{ form.nombre }}
+                    </div>
+
+                    <div class="campo">
+                        {{ form.email }}
+                    </div>
+                </div>
+
+                <div class="campo">
+                    {{ form.asunto }}
+                </div>
+
+                <div class="campo campo-mensaje">
+                    {{ form.mensaje }}
+                </div>
+
+                <button class="btn" type="submit">Enviar</button>
+
+            </form>
+        </div>
+    </section>
+
     <section class="mapa">
         <div class="mapa-content">
             <h2>¿Dónde estamos?</h2>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51197.12716121476!2d-6.151793332198494!3d36.67881790674343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dc72a4eb28265%3A0x26e31de1f1533be1!2sDizon%20Barber!5e0!3m2!1ses!2ses!4v1778691515885!5m2!1ses!2ses"
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <section class="chat-bot">
+        <div class="chat-bot-content">
+            <p>Chatbot en proceso...</p>
         </div>
     </section>
 {% endblock %}

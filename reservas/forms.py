@@ -116,3 +116,10 @@ class ReservaForm(forms.ModelForm):
                 )
 
         return cleaned_data
+
+
+class ContactoForm(forms.Form):
+    nombre = forms.CharField(max_length=150, widget=forms.TextInput(attrs={'placeholder': 'Tu Nombre'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Tu Email'}))
+    asunto = forms.CharField(max_length=150, widget=forms.TextInput(attrs={'placeholder': 'Asunto'}))
+    mensaje = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Tu Mensaje'}))

@@ -20,5 +20,77 @@
         </div>
     </section>
 
+    <section class="servicios">
+        <div class="servicios-content">
+            <h2>Nuestros servicios</h2>
+            <p>Nuestros servicios de barbería están pensados para cuidar tu estilo de forma completa, combinando
+                técnicas tradicionales y modernas para ofrecerte siempre el mejor resultado.
+            </p>
+            <div class="galleria-imgs">
+                <div class="imgs-card">
+                    <div class="img-wrapper">
+                        <img src="{% static 'reservas/imgs/silver-machine-haircut.jpg' %}" alt="">
+                    </div>
+                    <h3>Estilos De Pelado</h3>
+                    <p>Cortes, barba, afeitado y cuidado capilar con estilo profesional.</p>
+                </div>
+                <div class="imgs-card">
+                    <div class="img-wrapper">
+                        <img src="{% static 'reservas/imgs/silver-machine-haircut.jpg' %}" alt="">
+                    </div>
+                    <h3>Corte De Barba</h3>
+                    <p>Perfilado y arreglo de barba con acabado limpio y profesional.</p>
+                </div>
+                <div class="imgs-card">
+                    <div class="img-wrapper">
+                        <img src="{% static 'reservas/imgs/silver-machine-haircut.jpg' %}" alt="">
+                    </div>
+                    <h3>Lavado De Cabeza</h3>
+                    <p>Lavado de cabello con limpieza profunda y cuidado del cuero cabelludo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experiencia"
+             style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+        <div class="experiencia-content">
+            <div class="skills">
+                <div class="skill">
+                    <div class="skill-header">
+                        <span class="skill-name">Haircut</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-header">
+                        <span class="skill-name">Trim</span>
+                        <span class="skill-percent">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <div class="skill-header">
+                        <span class="skill-name">Shave</span>
+                        <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="texto">
+                <h3>Experiencia y Habilidades</h3>
+                <p>wdwadawd</p>
+                <a href="{% url 'somos' %}" class="btn">Leer Más</a>
+            </div>
+        </div>
+    </section>
+
     <a href={% url 'crear_reserva' %}>Crear reserva</a>
 {% endblock %}
