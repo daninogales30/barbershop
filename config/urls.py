@@ -21,5 +21,5 @@ from django.contrib.auth import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('reservas.urls')),
-    path('login/', views.LoginView.as_view(), name='login'),
+    path('', include('users.urls')),
 ]

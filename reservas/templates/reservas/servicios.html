@@ -13,7 +13,7 @@
         <div class="hero-center">
             <div class="hero-content">
                 <h1>Servicios de la Barbería 💈</h1>
-                <span><a href="{% url 'home' %}">Home</a></span>
+                <span><a href="{% url 'reservas:home' %}">Home</a></span>
                 <span> / </span>
                 <span class="banner">Servicios</span>
             </div>
@@ -58,7 +58,7 @@
             <div class="skills">
                 <div class="skill">
                     <div class="skill-header">
-                        <span class="skill-name">Haircut</span>
+                        <span class="skill-name">Pelado</span>
                         <span class="skill-percent">90%</span>
                     </div>
                     <div class="progress-bar">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="skill">
                     <div class="skill-header">
-                        <span class="skill-name">Trim</span>
+                        <span class="skill-name">Recorte</span>
                         <span class="skill-percent">70%</span>
                     </div>
                     <div class="progress-bar">
@@ -76,7 +76,7 @@
                 </div>
                 <div class="skill">
                     <div class="skill-header">
-                        <span class="skill-name">Shave</span>
+                        <span class="skill-name">Afeitado</span>
                         <span class="skill-percent">80%</span>
                     </div>
                     <div class="progress-bar">
@@ -86,11 +86,12 @@
             </div>
             <div class="texto">
                 <h3>Experiencia y Habilidades</h3>
-                <p>wdwadawd</p>
-                <a href="{% url 'somos' %}" class="btn">Leer Más</a>
+                <p>Con experiencia y pasión por el detalle, ofrecemos cortes con estilo y personalidad.
+                    Cada visita es una experiencia única para resaltar tu mejor versión.
+                </p>
+                <a href="{% url 'reservas:somos' %}" class="btn">Leer Más</a>
             </div>
         </div>
     </section>
 
-    <a href={% url 'crear_reserva' %}>Crear reserva</a>
 {% endblock %}

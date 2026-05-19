@@ -1,0 +1,121 @@
+/* Refuerzo visual para la navbar en login */
+.navbar {
+    background: #303030 !important;
+    backdrop-filter: none !important;
+}
+
+/* login.css */
+.login-section {
+    width: 100%;
+    min-height: calc(102vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background-color: #f5f5f5;
+}
+
+.login-container {
+    max-width: 500px;
+    width: 100%;
+    background: white;
+    padding: 45px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.login-container h2 {
+    color: #444444;
+    font-size: 36px;
+    margin-bottom: 35px;
+    text-align: center;
+    padding: 0;
+}
+
+/* Estilos para los campos del formulario Django */
+#id_username,
+#id_password {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    font-family: "Playfair Display", serif;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+#id_username:focus,
+#id_password:focus {
+    border-color: #c59d5f;
+}
+
+/* Botón: reutiliza tu clase .btn (ya la tienes global) */
+.btn {
+    display: inline-block;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 32px;
+    background-color: #c59d5f;
+    color: #fff;
+    border: 2px solid #c59d5f;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: #c59d5f;
+}
+
+/* Mensajes de error (opcional) */
+.errorlist {
+    background-color: #ffe6e6;
+    color: #d9534f;
+    padding: 12px;
+    list-style: none;
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    border-left: 4px solid #d9534f;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.register-link p {
+    color: #8e8e8e;
+    font-size: 16px;
+}
+
+.register-link a {
+    color: #c59d5f;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.register-link a:hover {
+    color: #a87d3e;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 550px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+    .login-container h2 {
+        font-size: 28px;
+    }
+}

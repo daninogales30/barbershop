@@ -81,13 +81,44 @@
     white-space: nowrap;
 }
 
-.auth a, .auth span {
+.auth a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+.auth a:hover {
+    color: #c59d5f;
+}
+
+.auth a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #c59d5f;
+    transition: width 0.3s ease;
+}
+
+.auth a:hover::after {
+    width: 100%;
+}
+
+.auth .enlace, .auth span {
     text-decoration: none;
     color: white;
     font-weight: 500;
 }
 
-.auth button, .auth .a-login {
+.auth .enlace, .auth .a-login {
     background: #c59d5f;
     color: white;
     border: none;
@@ -99,9 +130,16 @@
     transition: all 0.3s ease;
 }
 
-.auth button:hover, .auth .a-login:hover {
+.auth .enlace:hover,
+.auth .a-login:hover {
     background: #a87d3e;
     transform: scale(1.05);
+    color: white;
+}
+
+.auth .enlace::after,
+.auth .a-login::after {
+    display: none;
 }
 
 /* Responsive para móviles */

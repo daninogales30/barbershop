@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'reservas.apps.ReservasConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'users:login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -136,3 +137,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'danixdxdfortnite@gmail.com'
 
 EMAIL_HOST_PASSWORD = 'btdhpiednuuqsvhq'
+
+AUTH_USER_MODEL = "users.User"

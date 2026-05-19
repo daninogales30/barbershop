@@ -1,9 +1,12 @@
+from datetime import date, datetime
+
+from .forms import generar_slots
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LogoutView
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import EmailMessage
+from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, FormView
 
@@ -56,38 +59,34 @@ class ContactosView(FormView):
 class SomosView(TemplateView):
     template_name = "reservas/somos.html"
 
-""" class ReservasCreateView(LoginRequiredMixin, CreateView): """
-
-class RegisterView(LoginRequiredMixin, FormView):
-    template_name = "registration/register.html"
-    form_class = RegisterForm
-    success_url = reverse_lazy('home')
-
-    def form_valid(self, form):
-        username = form.cleaned_data['username']
-        email = form.cleaned_data['email']
-        password = form.cleaned_data['password']
-
-        user = User.objects.create_user(
-            username=username,
-            email=email,
-            password=password)
-
-        login(self.request, user)
-        
-        return super().form_valid(form)
+def horas_disponibles_api(request):
+    fecha_str = request.GET.get('fecha')
+    if not fecha_str:
+        return JsonResponse({'horas': []})
+    try:
+        fecha = datetime.strptime(fecha_str, '%Y-%m-%d').date()
+    except ValueError:
+        return JsonResponse({'horas': []})
+    slots = generar_slots(fecha)   # lista de objetos time
+    horas = [s.strftime('%H:%M') for s in slots]
+    return JsonResponse({'horas': horas})
 
 class ReservaCreateView(LoginRequiredMixin, CreateView):
     model = Reserva
     form_class = ReservaForm
-    success_url = reverse_lazy('home')
-    template_name = "reservas/crear_reserva.html"
+    template_name = 'reservas/crear_reserva.html'
+    success_url = reverse_lazy('reservas:home')  # o donde quieras
+
+    def get_initial(self):
+        # Devuelve un diccionario con la fecha actual como valor inicial
+        return {'fecha': date.today()}
 
     def form_valid(self, form):
         form.instance.usuario = self.request.user
         return super().form_valid(form)
 
-class CustomLogoutView(LogoutView):
-    def get_next_page(self):
-        return '/'
+    def form_invalid(self, form):
+        messages.error(self.request, 'Por favor corrige los errores del formulario.')
+        return super().form_invalid(form)
+
 

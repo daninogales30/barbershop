@@ -1,31 +1,156 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Reservar cita{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'reservas/css/crear_reserva.css' %}">
+{% endblock %}
+
+{% block title %}Reservar cita - Barbería{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fechaInput = document.getElementById('id_fecha');
+    const horaSelect = document.getElementById('id_hora');
+
+    if (!fechaInput || !horaSelect) return;
+
+    // 1. Detectar fin de semana (sábado=6, domingo=0)
+    function esFinDeSemana(date) {
+        const dia = date.getDay();
+        return dia === 0 || dia === 6;
+    }
+
+    // 2. Resetear el selector de horas (opción vacía)
+    function resetHoras() {
+        horaSelect.innerHTML = '<option value="">-- Primero selecciona una fecha --</option>';
+    }
+
+    // 3. Cargar horas disponibles vía AJAX
+    function cargarHoras() {
+        const fecha = fechaInput.value;
+        if (!fecha) {
+            resetHoras();
+            return;
+        }
+
+        const fechaObj = new Date(fecha);
+        if (esFinDeSemana(fechaObj)) {
+            alert('⛔ Los sábados y domingos no están disponibles. Elige un día de lunes a viernes.');
+            fechaInput.value = '';
+            resetHoras();
+            return;
+        }
+
+        horaSelect.innerHTML = '<option value="">Cargando horas...</option>';
+
+        fetch(`{% url 'reservas:horas_disponibles' %}?fecha=${fecha}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.horas && data.horas.length > 0) {
+                    let options = '<option value="">---------</option>'; // opción vacía
+                    data.horas.forEach(hora => {
+                        options += `<option value="${hora}">${hora}</option>`;
+                    });
+                    horaSelect.innerHTML = options;
+                } else {
+                    horaSelect.innerHTML = '<option value="">❌ No hay horas disponibles en esta fecha</option>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                horaSelect.innerHTML = '<option value="">⚠️ Error al cargar horas</option>';
+            });
+    }
+
+    // Evento al cambiar la fecha
+    fechaInput.addEventListener('change', cargarHoras);
+
+    // Validar la fecha inicial (la que viene de get_initial)
+    if (fechaInput.value) {
+        const fechaInicial = new Date(fechaInput.value);
+        if (esFinDeSemana(fechaInicial)) {
+            alert('La fecha por defecto es fin de semana. Selecciona un día laborable.');
+            fechaInput.value = '';
+            resetHoras();
+        } else {
+            cargarHoras();
+        }
+    }
+});
+</script>
+{% endblock %}
 
 {% block content %}
 
-<h2>Reservar cita</h2>
+    <section class="hero"
+             style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+        <div class="hero-center">
+            <div class="hero-content">
+                <h1>Reserva Online 💈</h1>
+                <span><a href="{% url 'reservas:home' %}">Home</a></span>
+                <span> / </span>
+                <span class="banner">Reserva</span>
+            </div>
+        </div>
+    </section>
 
-<form method="post" id="reserva-form">
-    {% csrf_token %}
+    <section class="reserva-section">
+    <div class="reserva-container">
+        <h2>Reserva tu cita</h2>
 
-    <!-- 📅 FECHA -->
-    <div>
-        <label>Fecha</label>
-        {{ form.fecha }}
+        <form method="post" class="reserva-form">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="alert-error">
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Fecha -->
+            <div class="campo">
+                {{ form.fecha.label_tag }}
+                {{ form.fecha }}
+                {{ form.fecha.errors }}
+            </div>
+
+            <!-- Hora (ChoiceField) -->
+            <div class="campo">
+                {{ form.hora.label_tag }}
+                {{ form.hora }}
+                {{ form.hora.errors }}
+            </div>
+
+            <!-- Tipo de corte -->
+            <div class="campo">
+                {{ form.tipo_corte.label_tag }}
+                {{ form.tipo_corte }}
+                {{ form.tipo_corte.errors }}
+            </div>
+
+            <!-- Teléfono -->
+            <div class="campo">
+                {{ form.telefono.label_tag }}
+                {{ form.telefono }}
+                {{ form.telefono.errors }}
+            </div>
+
+            <!-- Notas -->
+            <div class="campo campo-mensaje">
+                {{ form.notas.label_tag }}
+                {{ form.notas }}
+                {{ form.notas.errors }}
+            </div>
+
+            <button type="submit" class="btn">Reservar</button>
+        </form>
     </div>
+</section>
 
-    <!-- 🕒 HORA -->
-    <div>
-        <label>Hora</label>
-        <select name="hora">
-            {% for value, label in form.fields.hora.choices %}
-                <option value="{{ value }}">{{ label }}</option>
-            {% endfor %}
-        </select>
-    </div>
 
-    <button type="submit">Reservar</button>
-</form>
+
 
 {% endblock %}

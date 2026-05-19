@@ -14,7 +14,7 @@
         <div class="hero-center">
             <div class="hero-content">
                 <h1>Contacto 💈</h1>
-                <span><a href="{% url 'home' %}">Home</a></span>
+                <span><a href="{% url 'reservas:home' %}">Home</a></span>
                 <span> / </span>
                 <span class="banner">Contacto</span>
             </div>
@@ -25,7 +25,6 @@
         <div class="formulario-content">
             <h2>Contacta con nosotros</h2>
             <form class="formu" method="POST">
-
                 {% csrf_token %}
 
                 <div class="fila">
@@ -46,8 +45,7 @@
                     {{ form.mensaje }}
                 </div>
 
-                <button class="btn" type="submit">Enviar</button>
-
+                <button class="btn" type="submit">ENVIAR</button>
             </form>
         </div>
     </section>
