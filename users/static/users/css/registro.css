@@ -1,0 +1,99 @@
+.navbar {
+    background: #303030 !important;
+    backdrop-filter: none !important;
+}
+
+/* registro.css */
+.registro-section {
+    padding: 60px 20px;
+    background-color: #f5f5f5;
+}
+.registro-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+.registro-container h2 {
+    color: #444;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.campo {
+    margin-bottom: 20px;
+}
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+.campo input, .campo select, .campo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 0;
+}
+.campo input:focus {
+    border-color: #c59d5f;
+    outline: none;
+}
+.alert-error {
+    background: #ffe6e6;
+    color: #d9534f;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-left: 4px solid #d9534f;
+}
+.btn {
+    width: 100%;
+    background-color: #c59d5f;
+    color: white;
+    border: 2px solid #c59d5f;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+}
+.btn:hover {
+    background-color: transparent;
+    color: #c59d5f;
+}
+.errorlist {
+    color: #d9534f;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+    font-size: 13px;
+}
+.login-link {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+.login-link p {
+    color: #8e8e8e;
+    font-size: 16px;
+}
+.login-link a {
+    color: #c59d5f;
+    text-decoration: none;
+    font-weight: 500;
+}
+.login-link a:hover {
+    color: #a87d3e;
+    text-decoration: underline;
+}
+@media (max-width: 550px) {
+    .registro-container {
+        padding: 30px 20px;
+    }
+}

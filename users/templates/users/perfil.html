@@ -1,13 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form method="post" action="{% url 'users:logout' %}">
-    {% csrf_token %}
-    <button type="submit">Cerrar sesión</button>
-</form>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'users/css/perfil.css' %}">
+{% endblock %}
+
+{% block title %}Mi Perfil - Barbería{% endblock %}
+
+{% block content %}
+    <section class="hero"
+             style="background-image: url('{% static 'reservas/imgs/close-up-hands-shaving-neck.jpg' %}')">
+        <div class="hero-center">
+            <div class="hero-content">
+                <h1>Mi Perfil 💈</h1>
+                <span><a href="{% url 'reservas:home' %}">Home</a></span>
+                <span> / </span>
+                <span class="banner">Mi Perfil</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="perfil-section">
+        <div class="perfil-container">
+            <div class="datos-personales">
+                <h2>Datos personales</h2>
+                <div class="datos-grid">
+                    <div class="dato-item">
+                        <label>Usuario:</label>
+                        <span>{{ usuario.username }}</span>
+                    </div>
+                    <div class="dato-item">
+                        <label>Nombre:</label>
+                        <span>{{ usuario.nombre|default:"-" }}</span>
+                    </div>
+                    <div class="dato-item">
+                        <label>Apellidos:</label>
+                        <span>{{ usuario.apellidos|default:"-" }}</span>
+                    </div>
+                    <div class="dato-item">
+                        <label>Email:</label>
+                        <span>{{ usuario.email }}</span>
+                    </div>
+                    <div class="dato-item">
+                        <label>Fecha de nacimiento:</label>
+                        <span>{{ usuario.fecha_nacimiento|date:"d/m/Y"|default:"-" }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estadisticas-perfil">
+                <div class="estadistica-card">
+                    <h3>Total citas</h3>
+                    <p>{{ total_citas }}</p>
+                </div>
+                <div class="estadistica-card">
+                    <h3>Pendientes</h3>
+                    <p>{{ pendientes }}</p>
+                </div>
+            </div>
+
+            <div class="mis-reservas">
+                <h2>Mis reservas</h2>
+                {% if reservas %}
+                    <div class="lista-reservas">
+                        {% for reserva in reservas %}
+                            <div class="reserva-item">
+                                <div class="reserva-info">
+                                    <strong>{{ reserva.fecha|date:"d/m/Y" }}</strong>
+                                    - {{ reserva.hora|time:"H:i" }}<br>
+                                    <span class="servicio">{{ reserva.get_tipo_corte_display }}</span><br>
+                                    <span class="estado {{ reserva.estado }}">{{ reserva.get_estado_display }}</span>
+                                </div>
+                                <div class="reserva-acciones">
+                                    <!--
+                                    <a href="" class="btn-small">Ver
+                                        detalles</a>
+                                    -->
+                                    {% if reserva.estado == 'pendiente' %}
+                                        <a href=""
+                                           class="btn-small btn-cancelar">Cancelar</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No tienes ninguna reserva todavía.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

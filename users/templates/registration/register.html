@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'users/css/registro.css' %}">
+{% endblock %}
+
+{% block title %}Registro - Barbería{% endblock %}
+
+{% block content %}
+
+<section class="registro-section">
+    <div class="registro-container">
+        <h2>Crear cuenta</h2>
+        <form method="post" class="registro-form">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="alert-error">
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="campo">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+
+            <div class="campo">
+                {{ form.nombre.label_tag }}
+                {{ form.nombre }}
+                {{ form.nombre.errors }}
+            </div>
+
+            <div class="campo">
+                {{ form.apellidos.label_tag }}
+                {{ form.apellidos }}
+                {{ form.apellidos.errors }}
+            </div>
+
+            <div class="campo">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div class="campo">
+                {{ form.fecha_nacimiento.label_tag }}
+                {{ form.fecha_nacimiento }}
+                {{ form.fecha_nacimiento.errors }}
+            </div>
+
+            <div class="campo">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+            </div>
+
+            <div class="campo">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+            </div>
+
+            <button type="submit" class="btn">Registrarse</button>
+        </form>
+
+        <div class="login-link">
+            <p>¿Ya tienes cuenta? <a href="{% url 'users:login' %}">Inicia sesión aquí</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}
