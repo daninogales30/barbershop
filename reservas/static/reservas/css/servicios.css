@@ -249,4 +249,273 @@
     color: #c59d5f;
 }
 
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .galleria-imgs {
+        gap: 20px;
+    }
+
+    .img-wrapper {
+        width: 290px;
+        height: 190px;
+    }
+
+    .servicios-content p {
+        max-width: 760px;
+    }
+}
+
+/* ========== TABLET - 768px a 1023px ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+        min-height: 45vh;
+        margin-top: -70px;
+        padding-top: 70px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .servicios {
+        padding: 60px 0;
+    }
+
+    .servicios-content p {
+        max-width: 720px;
+        margin-bottom: 60px;
+        font-size: 16px;
+    }
+
+    .galleria-imgs {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .imgs-card {
+        flex: 1 1 280px;
+        max-width: 320px;
+    }
+
+    .img-wrapper {
+        width: 100%;
+        max-width: 320px;
+        height: 200px;
+    }
+
+    .experiencia {
+        background-attachment: scroll;
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .experiencia-content {
+        gap: 30px;
+        padding: 0 15px;
+    }
+
+    .skills,
+    .texto {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .texto h3,
+    .texto p {
+        margin-bottom: 25px;
+    }
+}
+
+/* ========== MOBILE GRANDE - 481px a 767px ========== */
+@media (max-width: 767px) {
+    .hero {
+        min-height: 40vh;
+        margin-top: -65px;
+        padding-top: 65px;
+    }
+
+    .hero-center {
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .servicios {
+        padding: 50px 0;
+    }
+
+    .servicios-content {
+        padding: 0 15px;
+    }
+
+    .servicios-content h2 {
+        margin-bottom: 25px;
+    }
+
+    .servicios-content p {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    .galleria-imgs {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .imgs-card {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .img-wrapper {
+        width: 100%;
+        max-width: 360px;
+        height: 220px;
+    }
+
+    .imgs-card p {
+        max-width: 100%;
+    }
+
+    .experiencia {
+        background-attachment: scroll;
+        min-height: auto;
+        padding: 35px 0;
+    }
+
+    .experiencia-content {
+        padding: 0 15px;
+        gap: 25px;
+    }
+
+    .skills,
+    .texto {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .skill-header {
+        font-size: 14px;
+    }
+
+    .texto h3,
+    .texto p {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 10px 24px;
+        font-size: 12px;
+    }
+}
+
+/* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 35vh;
+        margin-top: -60px;
+        padding-top: 60px;
+    }
+
+    .hero-center {
+        padding: 0 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .servicios {
+        padding: 40px 0;
+    }
+
+    .servicios-content {
+        padding: 0 50px;
+    }
+
+    .servicios-content p {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .galleria-imgs {
+        gap: 20px;
+    }
+
+    .imgs-card {
+        max-width: 100%;
+    }
+
+    .img-wrapper {
+        max-width: 100%;
+        height: 180px;
+    }
+
+    .imgs-card h3 {
+        font-size: 18px;
+    }
+
+    .imgs-card p {
+        font-size: 14px;
+    }
+
+    .experiencia {
+        padding: 30px 0;
+    }
+
+    .experiencia-content {
+        padding: 0 50px;
+        gap: 20px;
+    }
+
+    .skills,
+    .texto {
+        text-align: center;
+    }
+
+    .texto h3 {
+        font-size: 20px;
+    }
+
+    .texto p {
+        font-size: 14px;
+    }
+
+    .skill-name,
+    .skill-percent {
+        font-size: 13px;
+    }
+}
+
+/* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
+@media (max-width: 359px) {
+    .hero-content h1 {
+        font-size: 20px;
+    }
+
+    .servicios-content p,
+    .imgs-card p,
+    .texto p {
+        font-size: 13px;
+    }
+
+    .img-wrapper {
+        height: 160px;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 11px;
+    }
+}
+
 

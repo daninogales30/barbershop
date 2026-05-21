@@ -245,3 +245,374 @@ h2 {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+/* ========== PC PEQUEÑA - 1024px a 1199px ========== */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .hero-content p {
+        font-size: 20px;
+    }
+
+    .galeria-cortes {
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .corte {
+        width: 250px;
+        height: 250px;
+    }
+
+    .horarios-grid {
+        justify-content: center;
+    }
+
+    .horario-card {
+        width: 160px;
+    }
+
+    .precios-grid {
+        padding: 0 30px;
+        gap: 25px 40px;
+    }
+}
+
+/* ========== TABLET - 768px a 1023px ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+        min-height: 80vh;
+        margin-top: -70px;
+        padding-top: 70px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .que-hacemos {
+        text-align: center;
+        padding: 60px 0 100px 0;
+    }
+
+    .que-hacemos-content p {
+        margin: 0 auto 60px auto;
+        font-size: 16px;
+        max-width: 500px;
+    }
+
+    .galeria-cortes {
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .corte {
+        width: 220px;
+        height: 220px;
+    }
+
+    .horario {
+        background-attachment: scroll;
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .horario-content p {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+
+    .horarios-grid {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .horario-card {
+        width: 160px;
+        padding: 24px 16px;
+    }
+
+    .precios {
+        padding: 60px 0;
+    }
+
+    .precios-grid {
+        padding: 0 30px;
+    }
+
+    .precios-content p {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+
+    .precios-grid {
+        gap: 25px 30px;
+    }
+
+    .precio-item {
+        font-size: 18px;
+    }
+}
+
+/* ========== MOBILE GRANDE - 481px a 767px ========== */
+@media (max-width: 767px) {
+    .hero {
+        min-height: 75vh;
+        margin-top: -65px;
+        padding-top: 65px;
+    }
+
+    .hero-center {
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        margin-bottom: 22px;
+    }
+
+    .hero-content a {
+        padding: 10px 24px;
+        font-size: 12px;
+    }
+
+    .que-hacemos {
+        padding: 50px 0 80px 0;
+    }
+
+    .que-hacemos-content {
+        padding: 0 15px;
+    }
+
+    .que-hacemos-content p {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    .galeria-cortes {
+        gap: 25px;
+        justify-content: center;
+    }
+
+    .corte {
+        width: 180px;
+        height: 180px;
+    }
+
+    .horario {
+        background-attachment: scroll;
+        min-height: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .horario-content {
+        padding: 0 15px;
+    }
+
+    .horario-content p {
+        font-size: 15px;
+        margin-bottom: 35px;
+    }
+
+    .horarios-grid {
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .horario-card {
+        width: 145px;
+        padding: 20px 14px;
+        font-size: 14px;
+    }
+
+    .precios {
+        padding: 50px 0;
+    }
+
+    .precios-content {
+        padding: 0 15px;
+    }
+
+    .precios-content p {
+        font-size: 15px;
+        margin-bottom: 35px;
+    }
+
+    .precios-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin: 30px 0 60px 0;
+    }
+
+    .precio-item {
+        font-size: 16px;
+    }
+}
+
+/* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 70vh;
+        margin-top: -60px;
+        padding-top: 60px;
+    }
+
+    .hero-center {
+        padding: 0 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    .hero-content a {
+        padding: 8px 20px;
+        font-size: 11px;
+    }
+
+    .que-hacemos {
+        padding: 40px 0 70px 0;
+    }
+
+    .que-hacemos-content {
+        padding: 0 12px;
+    }
+
+    .que-hacemos-content p {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .galeria-cortes {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .corte {
+        width: 150px;
+        height: 150px;
+    }
+
+    .horario {
+        padding: 30px 0;
+    }
+
+    .horario-content {
+        padding: 0 12px;
+    }
+
+    .horario-content p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .horarios-grid {
+        gap: 12px;
+    }
+
+    .horario-card {
+        width: 100%;
+        max-width: 160px;
+        padding: 18px 12px;
+        font-size: 13px;
+    }
+
+    .precios {
+        padding: 40px 0;
+    }
+
+    .precios-content {
+        padding: 0 12px;
+    }
+
+    .precios-content p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .precios-grid {
+        gap: 15px;
+        margin: 25px 0 50px 0;
+        padding: 0 20px;
+    }
+
+    .precio-item {
+        font-size: 14px;
+        flex-wrap: nowrap;
+    }
+
+    .dots {
+        margin: 0 10px;
+    }
+}
+
+/* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
+@media (max-width: 359px) {
+    .hero {
+        min-height: 65vh;
+        margin-top: -55px;
+        padding-top: 55px;
+    }
+
+    .hero-content h1 {
+        font-size: 22px;
+    }
+
+    .hero-content p {
+        font-size: 13px;
+    }
+
+    .hero-content a {
+        padding: 7px 18px;
+        font-size: 10px;
+    }
+
+    .que-hacemos-content p,
+    .horario-content p,
+    .precios-content p {
+        font-size: 13px;
+    }
+
+    .galeria-cortes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .corte {
+        width: 130px;
+        height: 130px;
+    }
+
+    .horario-card {
+        max-width: 140px;
+        padding: 16px 10px;
+        font-size: 12px;
+    }
+
+    .precio-item {
+        font-size: 13px;
+    }
+
+    .dots {
+        margin: 0 8px;
+    }
+}

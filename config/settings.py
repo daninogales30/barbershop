@@ -139,3 +139,5 @@ EMAIL_HOST_USER = 'danixdxdfortnite@gmail.com'
 EMAIL_HOST_PASSWORD = 'btdhpiednuuqsvhq'
 
 AUTH_USER_MODEL = "users.User"
+
+ALLOWED_HOSTS = ['*']

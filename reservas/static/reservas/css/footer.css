@@ -4,14 +4,14 @@
 }
 
 .fter-content {
-    width: 1100px;
+    max-width: 1100px;
     overflow: hidden;
     margin: 0 auto;
 }
 
 .lista-sponsors {
     display: flex;
-    gap: 60px;
+    gap: 40px;
     width: max-content;
     animation: scroll 20s linear infinite;
 }
@@ -128,12 +128,295 @@ h4 {
     margin-bottom: 70px;
 }
 
-
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
     100% {
         transform: translateX(-50%);
+    }
+}
+
+/* ========== PC PEQUEÑA - 1024px a 1199px ========== */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .fter-content {
+        max-width: 100%;
+        padding: 0 30px;
+    }
+
+    .lista-sponsors {
+        gap: 35px;
+    }
+
+    .lista-sponsors img {
+        width: 140px;
+    }
+
+    .descripcion {
+        padding: 50px 60px 120px 60px;
+    }
+
+    .descripcion-content {
+        width: 100%;
+        padding-top: 80px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .descripcion-card {
+        max-width: 45%;
+    }
+
+    .derechos-content {
+        width: 80%;
+    }
+
+    h4 {
+        margin-bottom: 50px;
+    }
+}
+
+/* ========== TABLET - 768px a 1023px ========== */
+@media (min-width: 700px) and (max-width: 1023px) {
+    .fter-content {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .lista-sponsors {
+        gap: 25px;
+    }
+
+    .lista-sponsors img {
+        width: 120px;
+    }
+
+    .descripcion {
+        padding: 60px 30px 100px 30px;
+        padding-bottom: 120px;
+        padding-top: 60px;
+    }
+
+    .descripcion-content {
+        width: 100%;
+        flex-direction: column;
+        gap: 50px;
+        padding: 0;
+    }
+
+    .descripcion-card {
+        max-width: 100%;
+    }
+
+    .derechos {
+        padding: 25px 0;
+    }
+
+    .derechos-content {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .reservados {
+        flex: 1;
+        min-width: 50%;
+    }
+
+    .redes-sociales {
+        justify-content: center;
+        flex: 1;
+        min-width: 50%;
+    }
+
+    h4 {
+        margin-bottom: 40px;
+        font-size: 18px;
+    }
+}
+
+/* ========== MOBILE GRANDE - 481px a 767px ========== */
+@media (min-width: 481px) and (max-width: 767px) {
+    .fter-content {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .lista-sponsors {
+        gap: 20px;
+    }
+
+    .lista-sponsors img {
+        width: 100px;
+    }
+
+    .descripcion {
+        padding-bottom: 80px;
+        padding-top: 50px;
+    }
+
+    .descripcion {
+        padding: 50px;
+    }
+
+    .descripcion-content {
+        width: 100%;
+        flex-direction: column;
+        gap: 40px;
+        padding: 0;
+    }
+
+    .descripcion-card {
+        max-width: 100%;
+    }
+
+    .derechos {
+        padding: 20px 0;
+    }
+
+    .derechos-content {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .redes-sociales {
+        justify-content: center;
+    }
+
+    h4 {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .descripcion-card span {
+        font-size: 15px;
+    }
+}
+
+/* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
+@media (max-width: 480px) {
+    .fter-content {
+        max-width: 100%;
+        padding: 0 12px;
+    }
+
+    .lista-sponsors {
+        gap: 15px;
+    }
+
+    .lista-sponsors img {
+        width: 85px;
+    }
+
+    .descripcion {
+        padding: 40px 30px 60px 30px;
+    }
+
+    .descripcion-content {
+        width: 100%;
+        flex-direction: column;
+        gap: 30px;
+        padding: 0;
+    }
+
+    .descripcion-card {
+        max-width: 100%;
+    }
+
+    .derechos {
+        padding: 15px 0;
+    }
+
+    .derechos-content {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .redes-sociales {
+        justify-content: center;
+    }
+
+    h4 {
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    .descripcion-card span {
+        font-size: 13px;
+        margin: 8px 0;
+    }
+
+    .enlaces a {
+        font-size: 13px;
+    }
+
+    .reservados span {
+        font-size: 11px;
+    }
+
+    .redes-sociales a {
+        font-size: 14px;
+    }
+}
+
+/* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
+@media (max-width: 359px) {
+    .fter-content {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .lista-sponsors {
+        gap: 12px;
+    }
+
+    .lista-sponsors img {
+        width: 70px;
+    }
+
+    .descripcion {
+        padding-bottom: 50px;
+        padding-top: 30px;
+    }
+
+    .descripcion-content {
+        gap: 25px;
+        padding: 0;
+    }
+
+    .derechos {
+        padding: 12px 0;
+    }
+
+    .derechos-content {
+        gap: 10px;
+        padding: 0;
+    }
+
+    h4 {
+        margin-bottom: 12px;
+        font-size: 13px;
+    }
+
+    .descripcion-card span {
+        font-size: 12px;
+        margin: 6px 0;
+    }
+
+    .enlaces a {
+        font-size: 12px;
+    }
+
+    .reservados span {
+        font-size: 10px;
+    }
+
+    .redes-sociales a {
+        font-size: 12px;
     }
 }

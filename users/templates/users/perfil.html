@@ -68,18 +68,31 @@
                                 <div class="reserva-info">
                                     <strong>{{ reserva.fecha|date:"d/m/Y" }}</strong>
                                     - {{ reserva.hora|time:"H:i" }}<br>
-                                    <span class="servicio">{{ reserva.get_tipo_corte_display }}</span><br>
+                                    <span class="servicio">Servicio: {{ reserva.get_tipo_corte_display }}</span>
+                                    <span class="servicio">Telefono: {{ reserva.telefono }}</span>
                                     <span class="estado {{ reserva.estado }}">{{ reserva.get_estado_display }}</span>
                                 </div>
                                 <div class="reserva-acciones">
-                                    <!--
-                                    <a href="" class="btn-small">Ver
-                                        detalles</a>
-                                    -->
+
                                     {% if reserva.estado == 'pendiente' %}
-                                        <a href=""
-                                           class="btn-small btn-cancelar">Cancelar</a>
+
+                                        <form method="POST"
+                                              action="{% url 'users:cancelar_reserva' reserva.pk %}"
+                                              onsubmit="return confirm('¿Cancelar esta reserva?')">
+
+                                            {% csrf_token %}
+
+                                            <button type="submit"
+                                                    class="btn-small btn-cancelar">
+
+                                                Cancelar
+
+                                            </button>
+
+                                        </form>
+
                                     {% endif %}
+
                                 </div>
                             </div>
                         {% endfor %}

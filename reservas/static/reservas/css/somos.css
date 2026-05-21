@@ -211,3 +211,297 @@
 .dot.active {
     background: #c59d5f;
 }
+
+/* ========== PC PEQUEÑA - 1024px a 1199px ========== */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .somos1-content {
+        padding: 0 50px 0 50px;
+        gap: 60px;
+    }
+
+    .texto1 h2 {
+        font-size: 36px;
+    }
+
+    .somos1-content img {
+        width: 320px;
+    }
+
+    .info-content {
+        padding: 0 50px;
+        gap: 40px;
+    }
+
+    .slide p {
+        font-size: 24px;
+    }
+}
+
+/* ========== TABLET - 768px a 1023px ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+        min-height: 45vh;
+        margin-top: -70px;
+        padding-top: 70px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .somos1 {
+        padding: 60px 50px 100px 50px;
+    }
+
+    .somos1-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .texto1 {
+        text-align: center;
+    }
+
+    .texto1 h2 {
+        max-width: 100%;
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .texto1 p {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .somos1-content img {
+        width: 320px;
+    }
+
+    .info {
+        padding: 60px 0 100px 0;
+    }
+
+    .info-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px 60px;
+    }
+
+    .info-card {
+        width: 180px;
+    }
+
+    .opinion {
+        min-height: 50vh;
+    }
+
+    .slide p {
+        font-size: 22px;
+    }
+}
+
+/* ========== MOBILE GRANDE - 481px a 767px ========== */
+@media (max-width: 767px) {
+    .hero {
+        min-height: 40vh;
+        margin-top: -65px;
+        padding-top: 65px;
+    }
+
+    .hero-center {
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .somos1 {
+        padding: 50px 0 80px 0;
+    }
+
+    .somos1-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .texto1 {
+        text-align: center;
+    }
+
+    .texto1 h2 {
+        max-width: 100%;
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .texto1 p {
+        max-width: 100%;
+        font-size: 15px;
+    }
+
+    .somos1-content img {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .info {
+        padding: 50px 0 80px 0;
+    }
+
+    .info-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px 40px;
+        padding: 0 15px;
+    }
+
+    .info-card {
+        width: 160px;
+    }
+
+    .info-card h3 {
+        font-size: 26px;
+    }
+
+    .opinion {
+        min-height: 45vh;
+    }
+
+    .opinion-content {
+        padding: 0 15px;
+    }
+
+    .slide p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .slide h4 {
+        font-size: 14px;
+    }
+
+    .dots {
+        margin-top: 25px;
+    }
+}
+
+/* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 35vh;
+        margin-top: -60px;
+        padding-top: 60px;
+    }
+
+    .hero-center {
+        padding: 0 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .somos1 {
+        padding: 40px 0 70px 0;
+    }
+
+    .somos1-content {
+        padding: 0 50px;
+        gap: 20px;
+    }
+
+    .texto1 h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .texto1 p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .somos1-content img {
+        max-width: 100%;
+    }
+
+    .info {
+        padding: 40px 0 70px 0;
+    }
+
+    .info-content {
+        gap: 20px;
+        padding: 0 12px;
+    }
+
+    .info-card {
+        width: 140px;
+    }
+
+    .info-card h3 {
+        font-size: 22px;
+    }
+
+    .info-card span {
+        font-size: 13px;
+    }
+
+    .opinion {
+        min-height: 40vh;
+    }
+
+    .opinion-content {
+        padding: 0 12px;
+    }
+
+    .slide p {
+        font-size: 15px;
+    }
+
+    .slide h4 {
+        font-size: 13px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
+@media (max-width: 359px) {
+    .hero-content h1 {
+        font-size: 20px;
+    }
+
+    .texto1 h2 {
+        font-size: 20px;
+    }
+
+    .texto1 p,
+    .slide p {
+        font-size: 13px;
+    }
+
+    .info-card {
+        width: 130px;
+    }
+
+    .info-card h3 {
+        font-size: 20px;
+    }
+
+    .slide h4 {
+        font-size: 12px;
+    }
+}

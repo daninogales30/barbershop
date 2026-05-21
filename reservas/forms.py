@@ -13,7 +13,7 @@ class RegisterForm(forms.Form):
 
 def generar_slots(fecha):
     inicio = time(9, 0)
-    fin = time(21, 0)
+    fin = time(20, 30)
     intervalo = timedelta(minutes=30)
     ahora = datetime.now().time()
     slots = []

@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Playfair Display", serif;
+    overflow-x: hidden;
 }
 
 .container {
@@ -18,3 +19,4 @@ body {
     /* Eliminamos el display flex y align-items center */
     display: block;
 }
+

@@ -1,8 +1,9 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import FormView, DetailView
 
 from reservas.models import Reserva
@@ -15,17 +16,15 @@ class PerfilView(LoginRequiredMixin, DetailView):
     template_name = 'users/perfil.html'
     context_object_name = 'usuario'
 
-    def get_context_data(self, **kwargs):
-        from reservas.services import marcar_reservas_expiradas
-
-        marcar_reservas_expiradas()
-
-
     def get_object(self):
         # Muestra el perfil del usuario logueado
         return self.request.user
 
     def get_context_data(self, **kwargs):
+        from reservas.services import marcar_reservas_completadas
+
+        marcar_reservas_completadas()
+
         context = super().get_context_data(**kwargs)
         user = self.get_object()
         # Lista de reservas del usuario (ordenadas por fecha descendente)
@@ -74,5 +73,20 @@ class RegistroView(FormView):
         )
         login(self.request, user)
         return super().form_valid(form)
+
+class CancelarReservaView(LoginRequiredMixin, View):
+
+    def post(self, request, pk):
+
+        reserva = get_object_or_404(
+            Reserva,
+            pk=pk,
+            usuario=request.user
+        )
+
+        reserva.estado = "cancelado"
+        reserva.save()
+
+        return redirect("users:perfil")
 
 

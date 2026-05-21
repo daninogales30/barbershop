@@ -6,6 +6,7 @@ class Reserva(models.Model):
         ('pendiente', 'Pendiente'),
         ('confirmado', 'Confirmado'),
         ('cancelado', 'Cancelado'),
+        ('completado', 'Completado'),
     ]
 
     TIPO_CORTE_CHOICES = [

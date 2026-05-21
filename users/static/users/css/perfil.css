@@ -147,8 +147,10 @@
     flex: 2;
 }
 .servicio {
+    display: block;
     font-size: 14px;
     color: #666;
+    margin-top: 5px;
 }
 .estado {
     font-weight: bold;
@@ -156,7 +158,7 @@
     padding: 3px 8px;
     border-radius: 20px;
     display: inline-block;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 .estado.pendiente {
     background: #fff3cd;
@@ -216,14 +218,258 @@
     background: transparent;
     color: #dc3545;
 }
-@media (max-width: 768px) {
+/* ========== PC PEQUEÑA - 1024px a 1199px ========== */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .perfil-container {
+        padding: 35px;
+    }
+
+    .datos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+
+    .reserva-item {
+        gap: 15px;
+    }
+}
+
+/* ========== TABLET - 768px a 1023px ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+        min-height: 45vh;
+        margin-top: -70px;
+        padding-top: 70px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .perfil-section {
+        padding: 50px 15px;
+    }
+
+    .perfil-container {
+        padding: 30px;
+    }
+
+    .datos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .estadisticas-perfil {
+        gap: 20px;
+    }
+
+    .estadistica-card p {
+        font-size: 28px;
+    }
+
+    .reserva-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .reserva-acciones {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+/* ========== MOBILE GRANDE - 481px a 767px ========== */
+@media (max-width: 767px) {
+    .hero {
+        min-height: 40vh;
+        margin-top: -65px;
+        padding-top: 65px;
+    }
+
+    .hero-center {
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .perfil-section {
+        padding: 40px 15px;
+    }
+
+    .perfil-container {
+        padding: 20px;
+    }
+
+    .datos-personales h2,
+    .mis-reservas h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .datos-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .dato-item {
+        gap: 6px;
+    }
+
+    .dato-item label {
+        min-width: 120px;
+        font-size: 14px;
+    }
+
+    .estadisticas-perfil {
+        gap: 15px;
+        margin-bottom: 35px;
+    }
+
+    .estadistica-card {
+        min-width: 100%;
+    }
+
+    .estadistica-card h3 {
+        font-size: 16px;
+    }
+
+    .estadistica-card p {
+        font-size: 26px;
+    }
+
     .reserva-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
     }
+
     .reserva-acciones {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
+    }
+
+    .btn-small {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
+
+/* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 35vh;
+        margin-top: -60px;
+        padding-top: 60px;
+    }
+
+    .hero-center {
+        padding: 0 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .perfil-section {
+        padding: 30px 12px;
+    }
+
+    .perfil-container {
+        padding: 16px;
+    }
+
+    .datos-personales h2,
+    .mis-reservas h2 {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .dato-item label {
+        min-width: 100%;
+        font-size: 13px;
+    }
+
+    .dato-item span {
+        font-size: 13px;
+    }
+
+    .estadisticas-perfil {
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .estadistica-card {
+        padding: 16px;
+    }
+
+    .estadistica-card h3 {
+        font-size: 15px;
+    }
+
+    .estadistica-card p {
+        font-size: 22px;
+    }
+
+    .reserva-item {
+        padding: 12px;
+    }
+
+    .reserva-info {
+        width: 100%;
+    }
+
+    .servicio {
+        font-size: 13px;
+    }
+
+    .estado {
+        font-size: 12px;
+    }
+
+    .btn-small {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+}
+
+/* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
+@media (max-width: 359px) {
+    .hero-content h1 {
+        font-size: 20px;
+    }
+
+    .perfil-container {
+        padding: 14px;
+    }
+
+    .datos-personales h2,
+    .mis-reservas h2 {
+        font-size: 18px;
+    }
+
+    .dato-item label,
+    .dato-item span,
+    .servicio,
+    .estado {
+        font-size: 12px;
+    }
+
+    .estadistica-card h3 {
+        font-size: 14px;
+    }
+
+    .estadistica-card p {
+        font-size: 20px;
+    }
+
+    .btn-small {
+        padding: 5px 8px;
+        font-size: 9px;
     }
 }

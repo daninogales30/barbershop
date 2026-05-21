@@ -92,8 +92,141 @@
     color: #a87d3e;
     text-decoration: underline;
 }
-@media (max-width: 550px) {
+
+/* ========== PC PEQUEÑA - 1024px a 1199px ========== */
+@media (min-width: 1024px) and (max-width: 1199px) {
     .registro-container {
-        padding: 30px 20px;
+        max-width: 560px;
+        padding: 36px;
     }
+    .registro-container h2 {
+        font-size: 26px;
+    }
+    .campo input,
+    .campo select,
+    .campo textarea {
+        font-size: 15px;
+        padding: 11px;
+    }
+    .btn {
+        padding: 11px;
+        font-size: 15px;
+    }
+}
+
+/* ========== TABLET - 768px a 1023px ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .registro-section {
+        padding: 50px 18px;
+    }
+    .registro-container {
+        max-width: 520px;
+        padding: 34px;
+    }
+    .registro-container h2 {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+    .campo input,
+    .campo select,
+    .campo textarea {
+        padding: 12px;
+        font-size: 15px;
+    }
+    .btn {
+        padding: 11px;
+        font-size: 15px;
+    }
+}
+
+/* ========== MOBILE GRANDE - 481px a 767px ========== */
+@media (max-width: 767px) {
+    .registro-section {
+        padding: 40px 16px;
+    }
+    .registro-container {
+        max-width: 460px;
+        padding: 28px;
+    }
+    .registro-container h2 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+    .campo input,
+    .campo select,
+    .campo textarea {
+        padding: 12px;
+        font-size: 15px;
+    }
+    .btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
+@media (max-width: 480px) {
+    .registro-section {
+        padding: 32px 12px;
+    }
+    .registro-container {
+        width: 100%;
+        max-width: 420px;
+        padding: 24px;
+    }
+    .registro-container h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    .campo label {
+        font-size: 14px;
+    }
+    .campo input,
+    .campo select,
+    .campo textarea {
+        font-size: 14px;
+        padding: 11px;
+    }
+    .btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .login-link p {
+        font-size: 14px;
+    }
+}
+
+/* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
+@media (max-width: 359px) {
+    .registro-section {
+        padding: 28px 10px;
+    }
+    .registro-container {
+        max-width: 360px;
+        padding: 18px;
+    }
+    .registro-container h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    .campo input,
+    .campo select,
+    .campo textarea {
+        font-size: 13px;
+        padding: 10px;
+    }
+    .btn {
+        padding: 8px;
+        font-size: 13px;
+    }
+    .login-link p {
+        font-size: 13px;
+    }
+}
+
+/* Pequeñas protecciones anti-overflow */
+html, body {
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
 }

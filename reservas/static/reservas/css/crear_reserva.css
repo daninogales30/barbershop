@@ -136,3 +136,207 @@
 .textos h2 {
     margin-bottom: 50px;
 }
+
+/* ========== PC PEQUEÑA - 1024px a 1199px ========== */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .reserva-container {
+        max-width: 560px;
+        padding: 36px;
+    }
+
+    .reserva-container h2 {
+        font-size: 24px;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .btn {
+        padding: 11px;
+        font-size: 15px;
+    }
+}
+
+/* ========== TABLET - 768px a 1023px ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+        min-height: 45vh;
+        margin-top: -70px;
+        padding-top: 70px;
+    }
+
+    .reserva-container {
+        max-width: 520px;
+        padding: 34px;
+    }
+
+    .reserva-container h2 {
+        font-size: 22px;
+        margin-bottom: 22px;
+    }
+
+    .fila {
+        gap: 16px;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .campo-mensaje textarea {
+        min-height: 120px;
+    }
+
+    .btn {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+}
+
+/* ========== MOBILE GRANDE - 481px a 767px ========== */
+@media (max-width: 767px) {
+    .hero {
+        min-height: 40vh;
+        margin-top: -65px;
+        padding-top: 65px;
+    }
+
+    .hero-center {
+        padding: 0 15px;
+    }
+
+    .reserva-section {
+        padding: 50px 12px;
+    }
+
+    .reserva-container {
+        width: 100%;
+        max-width: 460px;
+        padding: 28px;
+    }
+
+    .reserva-container h2 {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    /* Apilar filas (dos campos por fila -> columna) */
+    .fila {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .campo {
+        margin-bottom: 12px;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .campo-mensaje textarea {
+        min-height: 120px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .textos {
+        margin-bottom: 60px;
+    }
+}
+
+/* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 35vh;
+        margin-top: -60px;
+        padding-top: 60px;
+    }
+
+    .reserva-section {
+        padding: 40px 30px;
+    }
+
+    .reserva-container {
+        max-width: 420px;
+        padding: 22px;
+    }
+
+    .reserva-container h2 {
+        font-size: 18px;
+    }
+
+    .fila {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .campo-mensaje textarea {
+        min-height: 100px;
+    }
+
+    .btn {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .textos {
+        margin-bottom: 40px;
+    }
+}
+
+/* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
+@media (max-width: 359px) {
+    .hero {
+        min-height: 32vh;
+        margin-top: -55px;
+        padding-top: 55px;
+    }
+
+    .reserva-container {
+        max-width: 360px;
+        padding: 18px;
+    }
+
+    .reserva-container h2 {
+        font-size: 17px;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+        font-size: 13px;
+        padding: 9px;
+    }
+
+    .campo-mensaje textarea {
+        min-height: 90px;
+    }
+
+    .btn {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+}

@@ -8,7 +8,6 @@
     padding: 15px 0;
     margin: 0;
     transition: background 0.3s ease, backdrop-filter 0.3s ease;
-    /* Asegura una altura base */
     line-height: 1.2;
 }
 
@@ -142,19 +141,296 @@
     display: none;
 }
 
-/* Responsive para móviles */
-@media (max-width: 768px) {
-    .navbar-content {
-        flex-direction: column;
-        gap: 15px;
+/* ========== HAMBURGER MENU - Oculto por defecto ========== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.perfil-mobile {
+    display: none;
+}
+
+/* ========== PC NORMAL - 1200px y mayor ========== */
+@media (min-width: 1200px) {
+    .hamburger {
+        display: none;
     }
 
     .navbar-links {
+        display: flex;
+    }
+
+    .auth {
+        display: flex;
+    }
+}
+
+/* ========== PC PEQUEÑA - 1024px a 1199px ========== */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .hamburger {
+        display: none;
+    }
+
+    .navbar-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .navbar-links a {
+        font-size: 14px;
+    }
+
+    .auth {
+        display: flex;
+        gap: 15px;
+    }
+
+    .auth a {
+        font-size: 14px;
+    }
+}
+
+/* ========== TABLET - 768px a 1023px ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hamburger {
+        display: none;
+    }
+
+    .navbar-content {
         gap: 20px;
-        flex-wrap: wrap;
+    }
+
+    .navbar-links {
+        display: flex;
+        gap: 20px;
+        flex: 1;
+    }
+
+    .navbar-links a {
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+
+    .auth {
+        display: flex;
+        gap: 10px;
+    }
+
+    .auth a {
+        font-size: 13px;
     }
 
     .logo {
         font-size: 24px;
+    }
+}
+
+/* ========== MOBILE GRANDE - 481px a 767px ========== */
+@media (max-width: 767px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-content {
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 22px;
+        flex-shrink: 0;
+    }
+
+    .navbar-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: rgba(48, 48, 48, 0.98);
+        padding: 0;
+        gap: 0;
+        justify-content: flex-start;
+        z-index: 999;
+        backdrop-filter: blur(10px);
+    }
+
+    .navbar-links.active {
+        max-height: 300px;
+        padding: 15px 0;
+        overflow-y: auto;
+    }
+
+    .navbar-links a {
+        font-size: 14px;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(197, 157, 95, 0.2);
+        display: block;
+    }
+
+    .navbar-links a::after {
+        display: none;
+    }
+
+    .auth {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .auth a {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .auth .enlace,
+    .auth .a-login {
+        padding: 8px 12px;
+        font-size: 11px;
+        border-radius: 20px;
+    }
+}
+
+/* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
+@media (max-width: 480px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger span {
+        width: 22px;
+        height: 2.5px;
+    }
+
+    .navbar-content {
+        padding: 0 12px;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    /* 🔽 Corregido: estado cerrado por defecto */
+    .navbar-links {
+        max-height: 0; /* antes era 400px → se veía siempre abierto */
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    /* Estado abierto al hacer clic */
+    .navbar-links.active {
+        max-height: 400px;
+        padding: 15px 0;
+        overflow-y: auto;
+    }
+
+    .navbar-links a {
+        font-size: 13px;
+        padding: 12px 15px;
+    }
+
+    .auth {
+        gap: 8px;
+    }
+
+     /* Mostrar perfil móvil dentro del menú */
+    .perfil-mobile {
+        display: block;
+    }
+    /* Ocultar el enlace del perfil (icono + nombre) en el área auth */
+    #auth-ok {
+        display: none;
+    }
+
+    .auth a {
+        font-size: 10px;
+    }
+
+    .auth .enlace,
+    .auth .a-login {
+        padding: 6px 10px;
+        font-size: 9px;
+    }
+}
+
+/* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
+@media (max-width: 359px) {
+    .hamburger span {
+        width: 20px;
+        height: 2px;
+    }
+
+    .navbar-content {
+        padding: 0 10px;
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    /* También corregido aquí por si acaso */
+    .navbar-links {
+        max-height: 0;
+    }
+
+    .navbar-links.active {
+        max-height: 400px;
+        padding: 12px 0;
+    }
+
+    .navbar-links a {
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+
+     /* Mostrar perfil móvil dentro del menú */
+    .perfil-mobile {
+        display: block;
+    }
+    /* Ocultar el enlace del perfil (icono + nombre) en el área auth */
+    #auth-ok {
+        display: none;
+    }
+
+    .auth a {
+        font-size: 9px;
+    }
+
+    .auth .enlace,
+    .auth .a-login {
+        padding: 5px 8px;
+        font-size: 8px;
     }
 }
