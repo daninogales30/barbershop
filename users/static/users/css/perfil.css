@@ -218,6 +218,92 @@
     background: transparent;
     color: #dc3545;
 }
+
+.logout-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+.perfil-avatar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.foto-form {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+.perfil-avatar-label {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+    line-height: 0;
+    flex-shrink: 0;
+}
+
+.perfil-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    border: 4px solid #c59d5f;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    background: #f5f5f5;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    box-sizing: border-box;
+}
+
+.perfil-avatar-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0);
+    opacity: 0;
+    transition: opacity 0.25s ease, background 0.25s ease;
+}
+
+.perfil-avatar-icon {
+    color: white;
+    font-size: 28px;
+    line-height: 1;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.perfil-avatar-label:hover .perfil-avatar {
+    opacity: 0.55;
+}
+
+.perfil-avatar-label:hover .perfil-avatar-overlay {
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 1;
+}
+
+.perfil-avatar-label:hover .perfil-avatar-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.perfil-avatar-input {
+    display: none;
+}
+
 /* ========== PC PEQUEÑA - 1024px a 1199px ========== */
 @media (min-width: 1024px) and (max-width: 1199px) {
     .hero-content h1 {
@@ -235,8 +321,16 @@
     .reserva-item {
         gap: 15px;
     }
-}
 
+    .perfil-avatar-label {
+        width: 140px;
+        height: 140px;
+    }
+
+    .perfil-avatar-icon {
+        font-size: 24px;
+    }
+}
 /* ========== TABLET - 768px a 1023px ========== */
 @media (min-width: 768px) and (max-width: 1023px) {
     .hero {
@@ -277,6 +371,15 @@
     .reserva-acciones {
         width: 100%;
         justify-content: flex-end;
+    }
+
+    .perfil-avatar-label {
+        width: 120px;
+        height: 120px;
+    }
+
+    .perfil-avatar-icon {
+        font-size: 22px;
     }
 }
 
@@ -357,6 +460,15 @@
         padding: 6px 12px;
         font-size: 11px;
     }
+
+    .perfil-avatar-label {
+        width: 110px;
+        height: 110px;
+    }
+
+    .perfil-avatar-icon {
+        font-size: 20px;
+    }
 }
 
 /* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
@@ -436,6 +548,19 @@
         padding: 5px 10px;
         font-size: 10px;
     }
+
+    .perfil-avatar-label {
+        width: 100px;
+        height: 100px;
+    }
+
+    .perfil-avatar-icon {
+        font-size: 18px;
+    }
+
+    .perfil-avatar-wrapper {
+        margin-bottom: 24px;
+    }
 }
 
 /* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
@@ -471,5 +596,18 @@
     .btn-small {
         padding: 5px 8px;
         font-size: 9px;
+    }
+
+    .perfil-avatar-label {
+        width: 90px;
+        height: 90px;
+    }
+
+    .perfil-avatar-icon {
+        font-size: 16px;
+    }
+
+    .perfil-avatar-wrapper {
+        margin-bottom: 20px;
     }
 }

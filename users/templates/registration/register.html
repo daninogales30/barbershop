@@ -12,7 +12,7 @@
 <section class="registro-section">
     <div class="registro-container">
         <h2>Crear cuenta</h2>
-        <form method="post" class="registro-form">
+        <form method="post" class="registro-form" enctype="multipart/form-data">
             {% csrf_token %}
 
             {% if form.non_field_errors %}
@@ -51,6 +51,12 @@
                 {{ form.fecha_nacimiento.label_tag }}
                 {{ form.fecha_nacimiento }}
                 {{ form.fecha_nacimiento.errors }}
+            </div>
+
+        <div class="campo">
+                {{ form.foto_perfil.label_tag }}
+                {{ form.foto_perfil }}
+                {{ form.foto_perfil.errors }}
             </div>
 
             <div class="campo">

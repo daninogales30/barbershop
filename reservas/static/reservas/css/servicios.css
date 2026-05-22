@@ -249,6 +249,34 @@
     color: #c59d5f;
 }
 
+/* CTA - Reservar (mantiene la misma estética .btn) */
+.cta-reserva {
+    width: 100%;
+    padding: 60px 0;
+    background: transparent; /* si quieres otro fondo, cámbialo aquí */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.cta-reserva-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cta-reserva h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.cta-reserva p {
+    color: #666;
+    margin-bottom: 22px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
 @media (min-width: 1024px) and (max-width: 1199px) {
     .hero-content h1 {
         font-size: 48px;
@@ -266,6 +294,14 @@
     .servicios-content p {
         max-width: 760px;
     }
+
+    .cta-reserva {
+        padding: 70px 0;
+    }
+    .cta-reserva-inner { max-width: 860px; }
+    .cta-reserva h2 { font-size: 30px; }
+    .cta-reserva p { font-size: 17px; }
+    .btn-reservar { padding: 15px 40px; font-size: 15px; }
 }
 
 /* ========== TABLET - 768px a 1023px ========== */
@@ -328,6 +364,14 @@
     .texto p {
         margin-bottom: 25px;
     }
+
+    .cta-reserva {
+        padding: 60px 0;
+    }
+    .cta-reserva-inner { max-width: 760px; padding: 0 18px; }
+    .cta-reserva h2 { font-size: 26px; }
+    .cta-reserva p { font-size: 16px; }
+    .btn-reservar { padding: 14px 34px; font-size: 15px; }
 }
 
 /* ========== MOBILE GRANDE - 481px a 767px ========== */
@@ -415,6 +459,18 @@
         padding: 10px 24px;
         font-size: 12px;
     }
+
+    .cta-reserva {
+        padding: 48px 0;
+    }
+    .cta-reserva-inner { padding: 0 18px; }
+    .cta-reserva h2 { font-size: 22px; margin-bottom: 8px; }
+    .cta-reserva p { font-size: 15px; margin-bottom: 18px; }
+    .btn-reservar {
+        display: inline-block;
+        padding: 12px 32px;
+        font-size: 15px;
+    }
 }
 
 /* ========== MOBILE PEQUEÑO - 360px a 480px ========== */
@@ -494,6 +550,34 @@
     .skill-percent {
         font-size: 13px;
     }
+
+    .cta-reserva {
+        padding: 36px 0;
+    }
+    .cta-reserva-inner {
+        padding: 0 22px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .cta-reserva h2 {
+        font-size: 20px;
+        margin-bottom: 4px;
+        text-align: center;
+    }
+    .cta-reserva p {
+        font-size: 14px;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    .btn-reservar {
+        width: 100%;
+        max-width: 360px;
+        padding: 12px 20px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
 }
 
 /* ========== MOBILE EXTRA PEQUEÑO - 320px a 359px ========== */
@@ -515,6 +599,21 @@
     .btn {
         padding: 8px 20px;
         font-size: 11px;
+    }
+
+    .cta-reserva {
+        padding: 28px 0;
+    }
+    .cta-reserva-inner {
+        padding: 0 14px;
+        gap: 10px;
+    }
+    .cta-reserva h2 { font-size: 18px; }
+    .cta-reserva p { font-size: 13px; }
+    .btn-reservar {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 13px;
     }
 }
 

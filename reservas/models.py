@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import Q
+
 from config import settings
 
 class Reserva(models.Model):
@@ -27,7 +29,11 @@ class Reserva(models.Model):
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['fecha', 'hora'], name='unique_slot')
+            models.UniqueConstraint(
+                fields=['fecha', 'hora'],
+                condition=Q(estado__in=['pendiente', 'confirmado']),
+                name='unique_active_slot'
+            )
         ]
         ordering = ['-fecha', '-hora']
 

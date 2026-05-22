@@ -28,6 +28,7 @@ class RegistroForm(forms.Form):
         widget=forms.DateInput(attrs={'type': 'date'}),
         label="Fecha de nacimiento"
     )
+    foto_perfil = forms.ImageField(required=False, label="Foto de perfil")
     password1 = forms.CharField(widget=forms.PasswordInput, label="Contraseña")
     password2 = forms.CharField(widget=forms.PasswordInput, label="Confirmar contraseña")
 

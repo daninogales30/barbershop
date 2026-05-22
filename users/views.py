@@ -34,6 +34,19 @@ class PerfilView(LoginRequiredMixin, DetailView):
         context['pendientes'] = Reserva.objects.filter(usuario=user, estado='pendiente').count()
         return context
 
+    def post(self, request, *args, **kwargs):
+        user = self.get_object()
+
+        if 'foto_perfil' in request.FILES:
+            if user.foto_perfil and user.foto_perfil.name != 'perfiles/default.png':
+                user.foto_perfil.delete(save=False)
+
+            user.foto_perfil = request.FILES['foto_perfil']
+            user.save()
+            messages.success(request, "Foto de perfil actualizada correctamente.")
+
+        return redirect('users:perfil')
+
 class LoginView(FormView):
     template_name = 'registration/login.html'
     form_class = LoginForm
@@ -62,15 +75,18 @@ class RegistroView(FormView):
     success_url = reverse_lazy('reservas:home')
 
     def form_valid(self, form):
-        # Crear usuario manualmente con los datos del formulario
         user = User.objects.create_user(
             username=form.cleaned_data['username'],
             email=form.cleaned_data['email'],
             password=form.cleaned_data['password1'],
             nombre=form.cleaned_data['nombre'],
             apellidos=form.cleaned_data['apellidos'],
-            fecha_nacimiento=form.cleaned_data.get('fecha_nacimiento')
+            fecha_nacimiento=form.cleaned_data.get('fecha_nacimiento'),
         )
+        # Asignar foto si se ha subido
+        if 'foto_perfil' in self.request.FILES:
+            user.foto_perfil = self.request.FILES['foto_perfil']
+            user.save()  # Guardar el cambio
         login(self.request, user)
         return super().form_valid(form)
 

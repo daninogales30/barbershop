@@ -24,6 +24,23 @@
         <div class="perfil-container">
             <div class="datos-personales">
                 <h2>Datos personales</h2>
+                <div class="perfil-avatar-wrapper">
+                    <form method="post" action="{% url 'users:perfil' %}" enctype="multipart/form-data"
+                          class="foto-form">
+                        {% csrf_token %}
+
+                        <label for="id_foto_perfil" class="perfil-avatar-label">
+                            <img src="{{ usuario.foto_perfil.url }}" alt="Foto de perfil de {{ usuario.username }}"
+                                 class="perfil-avatar">
+                            <div class="perfil-avatar-overlay">
+                                <span class="perfil-avatar-icon">✎</span>
+                            </div>
+                        </label>
+
+                        <input type="file" name="foto_perfil" id="id_foto_perfil" accept="image/*"
+                               class="perfil-avatar-input" onchange="this.form.submit()">
+                    </form>
+                </div>
                 <div class="datos-grid">
                     <div class="dato-item">
                         <label>Usuario:</label>
@@ -101,6 +118,16 @@
                     <p>No tienes ninguna reserva todavía.</p>
                 {% endif %}
             </div>
+
+            <div class="logout-wrapper" aria-hidden="false">
+                <form method="post" action="{% url 'users:logout' %}"
+                      onsubmit="return confirm('¿Seguro que quieres cerrar sesión?');">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Cerrar sesión</button>
+                </form>
+            </div>
         </div>
     </section>
+
+
 {% endblock %}

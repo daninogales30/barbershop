@@ -29,7 +29,10 @@ def generar_slots(fecha):
         slots = [s for s in slots if s > ahora]
 
     # Eliminar horas ya reservadas (para esta fecha)
-    reservadas = Reserva.objects.filter(fecha=fecha).values_list('hora', flat=True)
+    reservadas = Reserva.objects.filter(
+        fecha=fecha,
+        estado__in=['pendiente', 'confirmado']
+    ).values_list('hora', flat=True)
     slots = [s for s in slots if s not in reservadas]
 
     return slots
