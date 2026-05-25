@@ -10,5 +10,5 @@ class User(AbstractUser):
         upload_to='perfiles/',
         null=True,
         blank=True,
-        default='perfiles/default.png'
+        default='https://res.cloudinary.com/dlyrpc828/image/upload/v1779727559/default_sgee5l.png'
     )
