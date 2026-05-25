@@ -45,6 +45,14 @@
                     {{ form.mensaje }}
                 </div>
 
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="mensaje {{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
                 <button class="btn" type="submit">ENVIAR</button>
             </form>
         </div>
