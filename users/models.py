@@ -10,5 +10,5 @@ class User(AbstractUser):
         upload_to='perfiles/',
         null=True,
         blank=True,
-        default='perfiles/default.png'  # opcional: imagen por defecto
+        default='perfiles/default.png'
     )

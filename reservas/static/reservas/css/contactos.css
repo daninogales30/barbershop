@@ -184,6 +184,10 @@
         margin-top: 80px;
     }
 
+    .mapa-content {
+        padding: 0 30px;
+    }
+
     .mapa-content iframe {
         aspect-ratio: 16 / 9;
     }
@@ -215,7 +219,7 @@
     }
 
     .mapa-content {
-        padding: 0 15px;
+        padding: 0 30px;
     }
 
     .mapa-content h2 {
@@ -283,7 +287,7 @@
     }
 
     .mapa-content {
-        padding: 0 15px;
+        padding: 0 30px;
     }
 
     .mapa-content h2 {
@@ -342,7 +346,7 @@
     }
 
     .mapa-content {
-        padding: 0 12px;
+        padding: 0 28px;
     }
 
     .mapa-content h2 {

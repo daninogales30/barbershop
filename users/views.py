@@ -38,11 +38,9 @@ class PerfilView(LoginRequiredMixin, DetailView):
         user = self.get_object()
 
         if 'foto_perfil' in request.FILES:
-            if user.foto_perfil and user.foto_perfil.name != 'perfiles/default.png':
-                user.foto_perfil.delete(save=False)
-
             user.foto_perfil = request.FILES['foto_perfil']
             user.save()
+
             messages.success(request, "Foto de perfil actualizada correctamente.")
 
         return redirect('users:perfil')
