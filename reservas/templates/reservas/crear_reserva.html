@@ -15,18 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!fechaInput || !horaSelect) return;
 
-    // 1. Detectar fin de semana (sábado=6, domingo=0)
     function esFinDeSemana(date) {
         const dia = date.getDay();
         return dia === 0 || dia === 6;
     }
 
-    // 2. Resetear el selector de horas (opción vacía)
     function resetHoras() {
         horaSelect.innerHTML = '<option value="">-- Primero selecciona una fecha --</option>';
     }
 
-    // 3. Cargar horas disponibles vía AJAX
     function cargarHoras() {
         const fecha = fechaInput.value;
         if (!fecha) {
@@ -35,8 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const fechaObj = new Date(fecha);
+
         if (esFinDeSemana(fechaObj)) {
-            alert('⛔ Los sábados y domingos no están disponibles. Elige un día de lunes a viernes.');
+            alert('⛔ Los sábados y domingos no están disponibles.');
             fechaInput.value = '';
             resetHoras();
             return;
@@ -48,35 +46,23 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.horas && data.horas.length > 0) {
-                    let options = '<option value="">---------</option>'; // opción vacía
+                    let options = '<option value="">---------</option>';
                     data.horas.forEach(hora => {
                         options += `<option value="${hora}">${hora}</option>`;
                     });
                     horaSelect.innerHTML = options;
                 } else {
-                    horaSelect.innerHTML = '<option value="">❌ No hay horas disponibles en esta fecha</option>';
+                    horaSelect.innerHTML = '<option value="">❌ No hay horas disponibles</option>';
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error(error);
                 horaSelect.innerHTML = '<option value="">⚠️ Error al cargar horas</option>';
             });
     }
 
-    // Evento al cambiar la fecha
     fechaInput.addEventListener('change', cargarHoras);
-
-    // Validar la fecha inicial (la que viene de get_initial)
-    if (fechaInput.value) {
-        const fechaInicial = new Date(fechaInput.value);
-        if (esFinDeSemana(fechaInicial)) {
-            alert('La fecha por defecto es fin de semana. Selecciona un día laborable.');
-            fechaInput.value = '';
-            resetHoras();
-        } else {
-            cargarHoras();
-        }
-    }
+});
 });
 </script>
 {% endblock %}
