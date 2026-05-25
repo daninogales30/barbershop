@@ -30,7 +30,7 @@ def enviar_email_contacto(asunto, nombre, email_usuario, mensaje):
     try:
         resend.Emails.send({
             "from": "Barbería <onboarding@resend.dev>",
-            "to": ["tucorreo@gmail.com"],
+            "to": ["danixdxdfortnite@gmail.com"],
             "subject": asunto,
             "html": f"""
                 <h3>Nuevo mensaje de contacto</h3>
