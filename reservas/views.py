@@ -11,6 +11,7 @@ from django.views.generic import TemplateView, CreateView, FormView
 from config import settings
 from reservas.forms import ReservaForm, ContactoForm
 from reservas.models import Reserva
+from .services import enviar_email_contacto
 
 
 class HomeView(TemplateView):
@@ -35,25 +36,17 @@ class ContactosView(FormView):
         asunto = form.cleaned_data['asunto']
         mensaje = form.cleaned_data['mensaje']
 
-        mensaje_completo = f"""
-        Nombre: {nombre}
-        Email: {email}
-        
-        Mensaje: {mensaje}
-        """
-
-        email = EmailMessage(
-            subject=asunto,
-            body=mensaje_completo,
-            from_email=settings.EMAIL_HOST_USER,
-            to=["danixdxdfortnite@gmail.com"],
-            reply_to=[email],  # 👈 clave
+        ok = enviar_email_contacto(
+            asunto,
+            nombre,
+            email,
+            mensaje
         )
 
-        print(settings.EMAIL_HOST_PASSWORD)
-        email.send(fail_silently=False)
-
-        messages.success(self.request, "Mensaje enviado correctamente")
+        if ok:
+            messages.success(self.request, "Mensaje enviado correctamente")
+        else:
+            messages.error(self.request, "Error enviando el mensaje")
 
         return super().form_valid(form)
 
