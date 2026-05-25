@@ -28,7 +28,7 @@ class ContactosView(FormView):
 
     form_class = ContactoForm
 
-    success_url = reverse_lazy('contactos')
+    success_url = reverse_lazy('reservas:contactos')
 
     def form_valid(self, form):
         nombre = form.cleaned_data['nombre']
