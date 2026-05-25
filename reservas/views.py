@@ -50,6 +50,7 @@ class ContactosView(FormView):
             reply_to=[email],  # 👈 clave
         )
 
+        print(settings.EMAIL_HOST_PASSWORD)
         email.send(fail_silently=False)
 
         messages.success(self.request, "Mensaje enviado correctamente")
