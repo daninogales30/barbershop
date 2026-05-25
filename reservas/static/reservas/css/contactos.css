@@ -162,6 +162,18 @@
     color: #444444;
 }
 
+.mapa-content iframe {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    display: block;
+    /* relación por defecto 4:3 (puedes cambiar a 16/9 si prefieres) */
+    aspect-ratio: 4 / 3;
+    /* mejora visual al escalar */
+    box-sizing: border-box;
+}
+
 /* ========== PC PEQUEÑA - 1024px a 1199px ========== */
 @media (min-width: 1024px) and (max-width: 1199px) {
     .hero-content h1 {
@@ -172,8 +184,8 @@
         margin-top: 80px;
     }
 
-    .mapa iframe {
-        height: 420px;
+    .mapa-content iframe {
+        aspect-ratio: 16 / 9;
     }
 }
 
@@ -210,8 +222,8 @@
         margin-bottom: 45px;
     }
 
-    .mapa iframe {
-        height: 380px;
+    .mapa-content iframe {
+        aspect-ratio: 16 / 9;
     }
 }
 
@@ -278,8 +290,8 @@
         margin-bottom: 35px;
     }
 
-    .mapa iframe {
-        height: 320px;
+    .mapa-content iframe {
+        aspect-ratio: 4 / 3;
     }
 }
 
@@ -338,8 +350,9 @@
         font-size: 22px;
     }
 
-    .mapa iframe {
-        height: 260px;
+    .mapa-content iframe {
+        /* en pantallas pequeñas puedes preferir una proporción más vertical */
+        aspect-ratio: 3 / 2;
     }
 }
 
@@ -365,7 +378,7 @@
         font-size: 10px;
     }
 
-    .mapa iframe {
-        height: 230px;
+    .mapa-content iframe {
+        aspect-ratio: 3 / 2;
     }
 }
