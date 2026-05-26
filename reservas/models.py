@@ -45,3 +45,10 @@ class Reserva(models.Model):
 
     def citas_pendientes_usuario(self):
         return Reserva.objects.filter(usuario=self.usuario, estado='pendiente').count()
+
+
+class Contactoform(models.Model):
+    nombre = models.CharField(max_length=150)
+    email = models.EmailField()
+    asunto = models.CharField(max_length=150)
+    mensaje = models.TextField()

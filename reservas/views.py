@@ -10,7 +10,7 @@ from django.views.generic import TemplateView, CreateView, FormView
 
 from config import settings
 from reservas.forms import ReservaForm, ContactoForm
-from reservas.models import Reserva
+from reservas.models import Reserva, Contactoform
 from .services import enviar_email_contacto
 
 
@@ -42,6 +42,13 @@ class ContactosView(FormView):
             email,
             mensaje
         )
+
+        contactoform = Contactoform.objects.create(nombre=nombre,
+                                                   email=email,
+                                                   asunto=asunto,
+                                                   mensaje=mensaje)
+        contactoform.save()
+
 
         if ok:
             messages.success(self.request, "Mensaje enviado correctamente")
