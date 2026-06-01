@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.tokens import default_token_generator
+from django.http import Http404
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
@@ -77,52 +78,58 @@ class RegistroView(FormView):
     success_url = reverse_lazy('users:login')
 
     def form_valid(self, form):
-        user = User.objects.create_user(
-            username=form.cleaned_data['username'],
-            email=form.cleaned_data['email'],
-            password=form.cleaned_data['password1'],
-            nombre=form.cleaned_data['nombre'],
-            apellidos=form.cleaned_data['apellidos'],
-            fecha_nacimiento=form.cleaned_data.get('fecha_nacimiento'),
-        )
+        try:
+            user = User.objects.create_user(
+                username=form.cleaned_data['username'],
+                email=form.cleaned_data['email'],
+                password=form.cleaned_data['password1'],
+                nombre=form.cleaned_data['nombre'],
+                apellidos=form.cleaned_data['apellidos'],
+                fecha_nacimiento=form.cleaned_data.get('fecha_nacimiento'),
+            )
 
-        user.is_active = False
+            user.is_active = False
 
-        if 'foto_perfil' in self.request.FILES:
-            user.foto_perfil = self.request.FILES['foto_perfil']
+            if 'foto_perfil' in self.request.FILES:
+                user.foto_perfil = self.request.FILES['foto_perfil']
 
-        user.save()
+            user.save()
 
-        uid = urlsafe_base64_encode(force_bytes(user.pk))
-        token = default_token_generator.make_token(user)
+            uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
+            token = default_token_generator.make_token(user)
 
-        link = self.request.build_absolute_uri(
-            f"/activar/{uid}/{token}/"
-        )
+            link = self.request.build_absolute_uri(
+                f"/activar/{uidb64}/{token}/"
+            )
 
-        send_verification_email(user.email, link)
+            try:
+                send_verification_email(user.email, link)
+            except Exception as e:
+                print("EMAIL ERROR:", e)
 
-        messages.success(
-            self.request,
-            "Te hemos enviado un correo para activar tu cuenta"
-        )
+            messages.success(self.request, "Revisa tu correo para activar la cuenta")
 
-        return redirect("users:login")
+            return redirect("users:login")
+
+        except Exception as e:
+            print("REGISTER ERROR:", e)
+            messages.error(self.request, "Error en el registro")
+            return redirect("users:registro")
 
 
 def activate(request, uidb64, token):
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
         user = User.objects.get(pk=uid)
-    except:
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
 
-    if user and default_token_generator.check_token(user, token):
+    if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
         return redirect("users:login")
 
-    return redirect("users:register")
+    raise Http404("Token inválido o expirado")
 
 class CancelarReservaView(LoginRequiredMixin, View):
 
