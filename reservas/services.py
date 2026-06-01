@@ -46,3 +46,16 @@ def enviar_email_contacto(asunto, nombre, email_usuario, mensaje):
         return False
 
 
+def send_verification_email(to_email, link):
+    resend.Emails.send({
+        "from": "BarberShop <onboarding@resend.dev>",
+        "to": to_email,
+        "subject": "Activa tu cuenta",
+        "html": f"""
+            <h2>Bienvenido a BarberShop</h2>
+            <p>Haz click para activar tu cuenta:</p>
+            <a href="{link}">Activar cuenta</a>
+        """
+    })
+
+

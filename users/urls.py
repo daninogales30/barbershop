@@ -11,6 +11,6 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path("logout/", LogoutView.as_view(next_page="reservas:home"), name="logout"),
     path('registro/', RegistroView.as_view(), name='registro'),
-    path("cancelar-reserva/<int:pk>/", views.CancelarReservaView.as_view(), name="cancelar_reserva"
-    ),
+    path("cancelar-reserva/<int:pk>/", views.CancelarReservaView.as_view(), name="cancelar_reserva"),
+    path('activar/<uidb64>/<token>/', views.activate, name='activate')
 ]
